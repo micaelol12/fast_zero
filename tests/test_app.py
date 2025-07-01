@@ -11,3 +11,10 @@ def test_root_deve_retornar_ola_mundo():
 
     assert response.status_code == status.HTTP_200_OK  # Assert
     assert response.json() == {'message': 'Olá Mundo!'}  # Assert
+
+
+def test_html_deve_retornar_ola_mundo():
+    response = client.get('/html')  # Act
+
+    assert response.status_code == status.HTTP_200_OK  # Assert
+    assert 'Olá Mundo' in response.text
